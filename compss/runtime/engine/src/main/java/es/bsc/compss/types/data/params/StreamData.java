@@ -1,0 +1,46 @@
+/*
+ *  Copyright 2002-2025 Barcelona Supercomputing Center (www.bsc.es)
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ *
+ */
+package es.bsc.compss.types.data.params;
+
+import es.bsc.compss.types.data.info.DataInfo;
+import es.bsc.compss.types.data.info.StreamInfo;
+
+
+public class StreamData extends ObjectData {
+
+    /**
+     * Constructs a new DataParams for a stream.
+     *
+     * @param code code identifying the object
+     */
+    public StreamData(int code) {
+        super(code);
+
+    }
+
+    @Override
+    public String getDescription() {
+        return "stream " + code;
+    }
+
+    @Override
+    protected DataInfo registerData(DataOwner owner) {
+        DataInfo sInfo = new StreamInfo(this, owner);
+        return sInfo;
+    }
+
+}
